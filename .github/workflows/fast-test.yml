@@ -26,6 +26,8 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+    - name: "env info"
+      run: echo "User name: $username"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -35,5 +37,4 @@ jobs:
         pylint --rcfile=.pylintrc pyinvest
     - name: Test with pytest
       run: |
-        echo $username
         python -m pytest ./test
