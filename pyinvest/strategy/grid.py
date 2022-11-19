@@ -9,7 +9,7 @@ class Gridbase(Strategy):
         # Grid mode: {Arithmetic, Geometric} and quantity int:
         # Investment amount
         # Take Profit/Stop Loss
-    
+
     def decide(self):
         pass
 

@@ -22,11 +22,11 @@ class Strategy(ABC):
         self._cash = 0
         self._host = 0
         pass
-    
+
     @property
     def cash(self):
         return self.cash
-    
+
     @property
     def hold(self):
         return self._hold
@@ -34,7 +34,7 @@ class Strategy(ABC):
     @abstractmethod
     def decide(self):
         pass
-    
+
     @abstractmethod
     def update(self):
         pass

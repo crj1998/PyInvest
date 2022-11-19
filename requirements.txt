@@ -1,5 +1,6 @@
 ipykernel
 pytest
+pylint
 requests
 lxml
 numpy
