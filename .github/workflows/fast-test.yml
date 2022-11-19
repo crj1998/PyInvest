@@ -11,6 +11,9 @@ on:
 
 permissions:
   contents: read
+  
+env:
+  username: ${{ secrets.EASTMONEY_USERNAME }}
 
 jobs:
   build:
@@ -32,4 +35,5 @@ jobs:
         pylint --rcfile=.pylintrc pyinvest
     - name: Test with pytest
       run: |
+        echo $username
         python -m pytest ./test
