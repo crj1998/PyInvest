@@ -29,7 +29,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with pylint
       run: |
-        pylint --rcfile=.pylintrc meetslut
-    - name: Test with unittest
+        pylint --rcfile=.pylintrc pyinvest
+    - name: Test with pytest
       run: |
-        python -m pytest
+        python -m pytest ./test
