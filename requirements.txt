@@ -1,0 +1,9 @@
+ipykernel
+pytest
+requests
+lxml
+numpy
+pandas
+matplotlib
+mplfinance
+pyecharts
