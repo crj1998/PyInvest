@@ -293,7 +293,6 @@ class SimulateLogin(object):
         html = lxml.etree.HTML(r.text)
         self.__ctxid = html.xpath("//input[@id='hdAccountCaptContextId']")[0].get("value")
         self.__RequestVerificationToken = html.xpath("//input[@name='__RequestVerificationToken']")[0].get("value")
-        print(self.__ctxid, self.__RequestVerificationToken)
 
     def _captcha_get(self):
         self.__session.headers.update({
@@ -364,19 +363,15 @@ class SimulateLogin(object):
 
     def _captcha_check(self):
         r = self._captcha_get()
-        print(r)
         r = self._captcha_valid(r['type'])
-        print(r)
         r = self._captcha_get()
-        print(r)
         src = ('https://' if r['https'] else 'http://') + r['static_servers'][0] + r['fullbg']
         url = decodeimg(src)
         if r['type'] == 'word':
             code = input(f'Click the {url} and input the {r["info"]} code: ')
         elif r['type'] == 'click':
-            code = input(f'Click the {url} and input the location of {r["info"]}(x y x y x y): ')
+            code = input(f'Click the {url} and input the location of {r["info"]}(x y): ')
         r = self._captcha_valid(r['type'], code)
-        print(r)
         # self.__validate = str(r.text.split(",")[-2].split(":")[-1])[2:-2]
         self.__validate = json.loads(r['Data']['Result'])['validate']
 
@@ -448,7 +443,7 @@ class SimulateLogin(object):
         return self.__session if ret else False
 
 if __name__ == '__main__':
-    account = SimulateLogin("", "")
+    account = SimulateLogin("18217480940", "testpwd")
     session = account.login()
     print(session)
     print(account)

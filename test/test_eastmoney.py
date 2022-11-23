@@ -13,3 +13,10 @@ class TestAPI:
         df = get_kline('1.000001', lastcount=100)
         assert len(df) == 100
         # print(df.head(5))
+    
+    def test_login(self):
+        from pyinvest import SimulateLogin
+        account = SimulateLogin("18217480940", "testpwd")
+        # session = account.login()
+        # print(session)
+        # print(account)
